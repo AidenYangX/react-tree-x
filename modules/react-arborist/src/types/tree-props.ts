@@ -25,6 +25,11 @@ export interface TreeProps<T> {
   renderCursor?: ElementType<renderers.CursorProps>;
   renderContainer?: ElementType<{}>;
 
+  /* DND Options */
+  dndRootElement?: globalThis.Node | null;
+  dndManager?: ReturnType<typeof useDragDropManager>;
+  backend?: any; // DND backend配置，允许从外部传入
+
   /* Sizes */
   rowHeight?: number;
   overscanCount?: number;
@@ -73,8 +78,6 @@ export interface TreeProps<T> {
   className?: string | undefined;
   rowClassName?: string | undefined;
 
-  dndRootElement?: globalThis.Node | null;
   onClick?: MouseEventHandler;
   onContextMenu?: MouseEventHandler;
-  dndManager?: ReturnType<typeof useDragDropManager>;
 }

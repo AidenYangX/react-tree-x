@@ -68,7 +68,7 @@ const data = [
 Use all the defaults. The _initialData_ prop makes the tree an uncontrolled component. Create, move, rename, and delete will be handled internally.
 
 ```jsx
-import { Tree } from 'react-arborist';
+import { Tree } from "react-arborist";
 
 function App() {
   return <Tree initialData={data} />;
@@ -246,16 +246,45 @@ function App() {
 ### Dynamic sizing
 
 You can add a ref to it with this package [ZeeCoder/use-resize-observer](https://github.com/ZeeCoder/use-resize-observer)
- 
+
 That hook will return the height and width of the parent whenever it changes. You then pass these numbers to the Tree.
 
 ```js
 const { ref, width, height } = useResizeObserver();
- 
+
 <div className="parent" ref={ref}>
   <Tree height={height} width={width} />
-</div>
+</div>;
 ```
+
+### Custom DND Backend
+
+If you have multiple DND providers in your application, you might encounter the error "Cannot have two HTML5 backends at the same time". To solve this, you can provide your own DND backend to the Tree component:
+
+```jsx
+import { Tree } from "react-arborist";
+import { HTML5Backend } from "react-dnd-html5-backend";
+// Or import your preferred backend
+import { TouchBackend } from "react-dnd-touch-backend";
+
+function App() {
+  return (
+    <Tree
+      initialData={data}
+      // Use the same backend as your existing DND provider
+      backend={HTML5Backend}
+      // Or use a different backend for touch devices
+      backend={TouchBackend}
+    />
+  );
+}
+```
+
+This allows you to:
+
+- Share the same backend with an existing DND provider
+- Use different backends for different devices (e.g., TouchBackend for mobile)
+- Avoid backend conflicts in your application
 
 ## API Reference
 

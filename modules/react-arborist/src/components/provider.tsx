@@ -1,3 +1,9 @@
+/*
+ * @Author: AidenYangX
+ * @Email: xscs709560271@gmail.com
+ * @LastEditTime: 2025-01-15 14:29:32
+ * @Description:
+ */
 import {
   ReactNode,
   useEffect,
@@ -39,12 +45,12 @@ export function TreeProvider<T>({
   const listEl = useRef<HTMLDivElement | null>(null);
   const store = useRef<Store<RootState, Actions>>(
     // @ts-ignore
-    createStore(rootReducer, initialState(treeProps))
+    createStore(rootReducer, initialState(treeProps)),
   );
   const state = useSyncExternalStore<RootState>(
     store.current.subscribe,
     store.current.getState,
-    () => SERVER_STATE
+    () => SERVER_STATE,
   );
 
   /* The tree api object is stable. */
@@ -84,7 +90,7 @@ export function TreeProvider<T>({
         <NodesContext.Provider value={state.nodes}>
           <DndContext.Provider value={state.dnd}>
             <DndProvider
-              backend={HTML5Backend}
+              backend={treeProps.backend || HTML5Backend}
               options={{ rootElement: api.props.dndRootElement || undefined }}
               {...(treeProps.dndManager && { manager: treeProps.dndManager })}
             >
