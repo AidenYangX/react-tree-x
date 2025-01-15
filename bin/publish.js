@@ -18,27 +18,65 @@ function exec(command) {
   }
 }
 
-// 主函数
-function main() {
-  console.log("开始构建...");
-  exec("pnpm build");
-
-  console.log("复制 README 文件...");
-  const readmePath = path.join(__dirname, "..", "README.md");
-  const targetPath = path.join(
+// 检查版本号
+function checkVersion() {
+  const pkgPath = path.join(
     __dirname,
     "..",
     "modules",
     "react-tree-x",
-    "README.md",
+    "package.json",
   );
-  fs.copyFileSync(readmePath, targetPath);
+  const pkg = require(pkgPath);
 
-  console.log("发布包...");
-  const publishArgs = process.argv.slice(2).join(" ");
-  exec(`pnpm --filter react-tree-x publish ${publishArgs}`);
+  if (!pkg.version) {
+    throw new Error("package.json 中没有定义版本号");
+  }
 
-  console.log("发布完成！");
+  console.log(`当前版本: ${pkg.version}`);
+  return pkg.version;
+}
+
+// 更新版本号
+function bumpVersion() {
+  console.log("更新版本号...");
+  exec("pnpm bump");
+}
+
+// 主函数
+function main() {
+  try {
+    // 检查并更新版本号
+    console.log("检查版本号...");
+    checkVersion();
+    bumpVersion();
+
+    // 重新检查版本号
+    const version = checkVersion();
+
+    console.log("开始构建...");
+    exec("pnpm build");
+
+    console.log("复制 README 文件...");
+    const readmePath = path.join(__dirname, "..", "README.md");
+    const targetPath = path.join(
+      __dirname,
+      "..",
+      "modules",
+      "react-tree-x",
+      "README.md",
+    );
+    fs.copyFileSync(readmePath, targetPath);
+
+    console.log(`准备发布 v${version}...`);
+    const publishArgs = process.argv.slice(2).join(" ");
+    exec(`pnpm --filter react-tree-x publish ${publishArgs}`);
+
+    console.log("发布完成！");
+  } catch (error) {
+    console.error("发布失败:", error.message);
+    process.exit(1);
+  }
 }
 
 main();
