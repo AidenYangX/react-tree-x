@@ -1,8 +1,5 @@
 {
   "name": "react-arborist-monorepo",
-  "workspaces": [
-    "./modules/*"
-  ],
   "scripts": {
     "build": "yarn workspaces foreach --all run build",
     "test": "yarn workspaces foreach --all run test",
@@ -10,7 +7,6 @@
     "publish": "sh bin/publish"
   },
   "private": true,
-  "packageManager": "yarn@4.0.2",
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "typescript": "^5.3.3"
