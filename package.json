@@ -1,9 +1,9 @@
 {
   "name": "react-arborist-monorepo",
   "scripts": {
-    "build": "yarn workspaces foreach --all run build",
-    "test": "yarn workspaces foreach --all run test",
-    "bump": "yarn workspace react-arborist version",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "bump": "pnpm --filter react-arborist version",
     "publish": "sh bin/publish"
   },
   "private": true,

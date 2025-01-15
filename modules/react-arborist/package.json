@@ -1,5 +1,5 @@
 {
-  "name": "react-arborist",
+  "name": "react-tree-x",
   "version": "3.4.0",
   "license": "MIT",
   "source": "src/index.ts",
@@ -12,9 +12,9 @@
     "build:es": "tsc --outDir dist/module --module es2022 --moduleResolution node",
     "build": "npm-run-all clean -p 'build:**'",
     "clean": "rimraf dist",
-    "prepack": "yarn build",
+    "prepack": "pnpm build",
     "test": "jest",
-    "watch": "yarn build:es --watch"
+    "watch": "pnpm build:es --watch"
   },
   "files": [
     "src",
@@ -22,10 +22,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/brimdata/react-arborist.git"
+    "url": "https://github.com/AidenYangX/react-tree-x"
   },
-  "homepage": "https://react-arborist.netlify.app",
-  "bugs": "https://github.com/brimdata/react-arborist/issues",
+  "bugs": "https://github.com/AidenYangX/react-tree-x/issues",
   "keywords": [
     "react",
     "arborist",
