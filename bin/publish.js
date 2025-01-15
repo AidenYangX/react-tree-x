@@ -33,25 +33,14 @@ function checkVersion() {
     throw new Error("package.json 中没有定义版本号");
   }
 
-  console.log(`当前版本: ${pkg.version}`);
+  console.log(`准备发布版本: ${pkg.version}`);
   return pkg.version;
-}
-
-// 更新版本号
-function bumpVersion() {
-  console.log("更新版本号...");
-  exec("pnpm bump");
 }
 
 // 主函数
 function main() {
   try {
-    // 检查并更新版本号
-    console.log("检查版本号...");
-    checkVersion();
-    bumpVersion();
-
-    // 重新检查版本号
+    // 检查版本号
     const version = checkVersion();
 
     console.log("开始构建...");
@@ -68,11 +57,11 @@ function main() {
     );
     fs.copyFileSync(readmePath, targetPath);
 
-    console.log(`准备发布 v${version}...`);
+    console.log(`发布 v${version}...`);
     const publishArgs = process.argv.slice(2).join(" ");
     exec(`pnpm --filter react-tree-x publish ${publishArgs}`);
 
-    console.log("发布完成！");
+    console.log("发布完成！🎉");
   } catch (error) {
     console.error("发布失败:", error.message);
     process.exit(1);
