@@ -7,5 +7,5 @@
 #!/bin/sh
 
 pnpm build
-cp README.md modules/react-arborist/README.md
+cp README.md modules/react-tree-x/README.md
 pnpm --filter react-tree-x publish $@

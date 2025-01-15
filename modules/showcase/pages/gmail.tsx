@@ -5,7 +5,7 @@ import {
   NodeRendererProps,
   Tree,
   TreeApi,
-} from "react-arborist";
+} from "react-tree-x";
 import { gmailData, GmailItem } from "../data/gmail";
 import * as icons from "react-icons/md";
 import styles from "../styles/Gmail.module.css";
@@ -99,7 +99,7 @@ export default function GmailSidebar() {
           </ul>
           <p>
             Star it on{" "}
-            <a href="https://github.com/brimdata/react-arborist">Github</a> (The
+            <a href="https://github.com/brimdata/react-tree-x">Github</a> (The
             docs are there too).
           </p>
           <p>

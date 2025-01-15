@@ -1,5 +1,5 @@
 {
-  "name": "react-arborist-monorepo",
+  "name": "react-tree-x-monorepo",
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",

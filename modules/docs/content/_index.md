@@ -23,16 +23,16 @@ const data = {
   path: '/users/jk',
   files: [
     {
-      name: 'react-arborist',
+      name: 'react-tree-x',
       path: '/users/jk/code',
       files: [
         {
           name: 'package.json',
-          path: '/users/jk/code/react-arborist'
+          path: '/users/jk/code/react-tree-x'
         },
         {
           name: '.prettierrc',
-          path: '/users/jk/code/react-arborist'
+          path: '/users/jk/code/react-tree-x'
         }
       ]
     }
@@ -46,7 +46,7 @@ const data = {
 <div class="switcher">
 
   <div>
-It's important to note that tree data can come in many shapes and sizes. However, they do all follow a common pattern. The `Tree` component that react-arborist exports needs you to convert your data into an array Nodes.
+It's important to note that tree data can come in many shapes and sizes. However, they do all follow a common pattern. The `Tree` component that react-tree-x exports needs you to convert your data into an array Nodes.
 
 There is a utility you can use to turn any data into nodes. It works like this.
 

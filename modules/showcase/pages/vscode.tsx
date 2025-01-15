@@ -1,6 +1,6 @@
 import useResizeObserver from "use-resize-observer";
 import styles from "../styles/vscode.module.css";
-import { NodeRendererProps, Tree } from "react-arborist";
+import { NodeRendererProps, Tree } from "react-tree-x";
 import { SiTypescript } from "react-icons/si";
 import { MdFolder } from "react-icons/md";
 import clsx from "clsx";
@@ -26,7 +26,7 @@ const structure = [
       file("index.ts"),
       file("worker.ts"),
       file("utils.ts"),
-      file("model.ts")
+      file("model.ts"),
     ),
     folder(
       "ui",
@@ -37,9 +37,9 @@ const structure = [
         "demo",
         file("welcome.ts"),
         file("example.ts"),
-        file("container.ts")
-      )
-    )
+        file("container.ts"),
+      ),
+    ),
   ),
 ];
 

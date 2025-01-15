@@ -2,13 +2,13 @@
 
 <h1>React Arborist</h1>
 
-[See the Demos](https://react-arborist.netlify.app/)
+[See the Demos](https://react-tree-x.netlify.app/)
 
 The tree view is ubiquitous in software applications. This library provides the React ecosystem with a complete solution to build the equivalent of a VSCode sidebar, Mac Finder, Windows Explorer, or Sketch/Figma layers panel.
 
-Here is a Gmail sidebar clone built with react-arborist.
+Here is a Gmail sidebar clone built with react-tree-x.
 
-<img src="https://user-images.githubusercontent.com/3460638/197306119-59fe59e6-50ae-4bc2-8cb9-3faa2bc52cd2.gif" width="270px" alt="Gmail sidebar clone built with react-arborist" />
+<img src="https://user-images.githubusercontent.com/3460638/197306119-59fe59e6-50ae-4bc2-8cb9-3faa2bc52cd2.gif" width="270px" alt="Gmail sidebar clone built with react-tree-x" />
 
 ## Features
 
@@ -27,11 +27,11 @@ Here is a Gmail sidebar clone built with react-arborist.
 ## Installation
 
 ```
-yarn add react-arborist
+yarn add react-tree-x
 ```
 
 ```
-npm install react-arborist
+npm install react-tree-x
 ```
 
 ## Examples
@@ -68,7 +68,7 @@ const data = [
 Use all the defaults. The _initialData_ prop makes the tree an uncontrolled component. Create, move, rename, and delete will be handled internally.
 
 ```jsx
-import { Tree } from "react-arborist";
+import { Tree } from "react-tree-x";
 
 function App() {
   return <Tree initialData={data} />;
@@ -262,7 +262,7 @@ const { ref, width, height } = useResizeObserver();
 If you have multiple DND providers in your application, you might encounter the error "Cannot have two HTML5 backends at the same time". To solve this, you can provide your own DND backend to the Tree component:
 
 ```jsx
-import { Tree } from "react-arborist";
+import { Tree } from "react-tree-x";
 import { HTML5Backend } from "react-dnd-html5-backend";
 // Or import your preferred backend
 import { TouchBackend } from "react-dnd-touch-backend";
@@ -439,7 +439,7 @@ All these properties on the node instance return booleans related to the state o
 
 _node_.**isRoot**
 
-Returns true if this is the root node. The root node is added internally by react-arborist and not shown in the UI.
+Returns true if this is the root node. The root node is added internally by react-tree-x and not shown in the UI.
 
 _node_.**isLeaf**
 
