@@ -3,8 +3,8 @@
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
-    "bump": "pnpm --filter react-arborist version",
-    "publish": "sh bin/publish"
+    "bump": "pnpm --filter react-tree-x version",
+    "publish": "node bin/publish.js"
   },
   "private": true,
   "devDependencies": {

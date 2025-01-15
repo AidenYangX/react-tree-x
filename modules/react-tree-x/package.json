@@ -1,6 +1,6 @@
 {
   "name": "react-tree-x",
-  "version": "3.4.0",
+  "version": "3.4.2",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/main/index.js",
@@ -10,7 +10,7 @@
   "scripts": {
     "build:cjs": "tsc --outDir dist/main",
     "build:es": "tsc --outDir dist/module --module es2022 --moduleResolution node",
-    "build": "npm-run-all clean -p 'build:**'",
+    "build": "npm-run-all clean -p build:**",
     "clean": "rimraf dist",
     "prepack": "pnpm build",
     "test": "jest",
