@@ -3,7 +3,10 @@
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
-    "bump": "pnpm --filter react-tree-x version",
+    "bump": "cd modules/react-tree-x && pnpm version",
+    "bump:patch": "pnpm bump patch",
+    "bump:minor": "pnpm bump minor",
+    "bump:major": "pnpm bump major",
     "publish": "node bin/publish.js"
   },
   "private": true,
